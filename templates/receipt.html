@@ -125,25 +125,14 @@
             </div>
             
             <script>
-                // QR Code generation function
+                // QR Code generation function - Offline version
                 function generateQR(text, elementId) {
-                    // Simple QR code generation using a data URL
-                    // In production, you'd use a proper QR library
-                    const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(text);
-                    const img = document.createElement('img');
-                    img.src = qrUrl;
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.onerror = function() {
-                        // Fallback if QR service is not available
-                        this.style.display = 'none';
-                        const fallback = document.createElement('div');
-                        fallback.innerHTML = '<strong>' + text + '</strong>';
-                        fallback.style.fontSize = '8pt';
-                        fallback.style.textAlign = 'center';
-                        this.parentNode.appendChild(fallback);
-                    };
-                    document.getElementById(elementId).appendChild(img);
+                    // Offline fallback - display text instead of QR code
+                    const fallback = document.createElement('div');
+                    fallback.innerHTML = '<div style="border: 2px solid #000; padding: 10px; text-align: center; font-family: monospace;"><strong>Battery ID:</strong><br/>' + text + '</div>';
+                    fallback.style.fontSize = '12pt';
+                    fallback.style.textAlign = 'center';
+                    document.getElementById(elementId).appendChild(fallback);
                 }
                 
                 function printQRSticker() {
