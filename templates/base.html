@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Battery Repair ERP{% endblock %}</title>
-    <!-- Bootstrap CSS and Font Awesome -->
-    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS and Font Awesome (Offline) -->
+    <link href="{{ url_for('static', filename='bootstrap-dark.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='print.css') }}" rel="stylesheet" media="print">
     <style>
         .navbar-brand {
@@ -163,7 +163,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
     <script>
         // Auto-dismiss alerts after 5 seconds
         document.addEventListener('DOMContentLoaded', function() {
